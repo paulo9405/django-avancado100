@@ -1,0 +1,7 @@
+<form action="" method="post" enctype="multipart/form-data"> <!--mostrar a imagem no admin-->
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Save">
+</form>
+
+<!--injeta uma varivel aqui dentro e faz um metodo do tipo post-->
