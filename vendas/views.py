@@ -5,7 +5,7 @@ from .models import Venda
 
 
 class DashboardView(View):
-    # verificação comm class based views
+    # verificação com class based views
     def dispatch(self, request, *args, **kwargs):
         if not request.user.has_perm('vendas.ver_dashboard'):
             return HttpResponse('Acesso negado, você precisa de permissão!')
@@ -21,3 +21,12 @@ class DashboardView(View):
         data['n_nfe'] = Venda.objects.n_nfe()
 
         return render(request, 'vendas/dashboard.html', data)
+
+
+class NovoPedido(View):
+    def get(self, request):
+        return render(request, 'vendas/novo-pedido.html')
+
+    def post(self, request):
+        return render(request, 'vendas/novo-pedido.html')
+
