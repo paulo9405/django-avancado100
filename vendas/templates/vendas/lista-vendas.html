@@ -27,9 +27,16 @@
                         Editar
                     </a>
                 </td>
+                <td>
+                    <a href="{% url 'delete-pedido' venda.id %}">
+                        Excluir
+                    </a>
+                </td>
+
             </tr>
         {% endfor %}
         </body>
     </table>
 
+<a href="{% url 'novo-pedido' %}">Nova venda</a>
 {% endblock %}
