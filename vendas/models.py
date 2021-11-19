@@ -7,7 +7,6 @@ from produtos.models import Produto
 from .managers import VendaManager
 
 
-
 class Venda(models.Model):
     numero = models.CharField(max_length=7)
     valor = models.DecimalField(max_digits=5, decimal_places=2, null=True, blank=True)
@@ -26,8 +25,8 @@ class Venda(models.Model):
             ('permissão3', 'Permissão3'),
         )
 
-    def get_row_vendas(self):
-        return Venda.objects.raw('select * from vendas_venda where id = %s', ['7', ])
+    # def get_row_vendas(self):
+    #     return Venda.objects.raw('select * from vendas_venda where id = %s', ['7', ])
 
     def calcular_total(self):
         tot = self.itemdopedido_set.all().aggregate(
@@ -59,7 +58,3 @@ def update_vendas_total(sender, instance, **kwargs):
 @receiver(post_save, sender=Venda)
 def update_vendas_total2(sender, instance, **kwargs):
     instance.calcular_total()
-
-
-
-#Venda.objects.filter(id=instance.id).update(total=total) #tem essa opção para revisar
