@@ -134,4 +134,5 @@ class ProdutoBulk(View):
 def api(request):
     a = {'Nome': 'Paulo', 'Idade': 27, 'Salario': 500}
     mensagem = {'mensagem': 'erro x y z'}
-    return JsonResponse(mensagem, status=404)
+    lista = [1, 2, 3]
+    return JsonResponse(lista, status=200, safe=False)
