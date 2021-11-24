@@ -9,6 +9,7 @@ from .views import PersonCreate
 from .views import PersonUpdate
 from .views import PersonDelete
 from .views import ProdutoBulk
+from .views import api
 
 urlpatterns = [
     path('list/', persons_list, name="person_list"),
@@ -21,5 +22,5 @@ urlpatterns = [
     path('person_update/<int:pk>/', PersonUpdate.as_view(), name="person_update_cbv"),
     path('person_delete/<int:pk>/', PersonDelete.as_view(), name="person_delete_cbv"),
     path('person_bulk/', ProdutoBulk.as_view(), name="person_bulk"),
-
+    path('api/', api, name="api"),
 ]

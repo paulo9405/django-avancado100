@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse_lazy
 from clientes.models import Person
@@ -129,3 +129,8 @@ class ProdutoBulk(View):
         Produto.objects.bulk_create(list_produtos)
 
         return HttpResponse('Funcionou')
+
+
+def api(request):
+    a = {'Nome': 'Paulo', 'Idade': 27, 'Salario': 500}
+    return JsonResponse(a)
