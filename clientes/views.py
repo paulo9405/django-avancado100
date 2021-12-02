@@ -149,3 +149,23 @@ def api(request):
         l.append(model_to_dict(produto))
 
     return JsonResponse(l, status=200, safe=False)
+
+class APICBV(View):
+    def get(self, request):
+        data = {'data': 'Paulo'}
+
+        produto = Produto.objects.last()
+
+        b = model_to_dict(produto)
+
+        l = []
+
+        produtos = Produto.objects.all()
+
+        for produto in produtos:
+            l.append(model_to_dict(produto))
+
+        return JsonResponse(l, safe=False)
+
+    def post(self):
+        pass
