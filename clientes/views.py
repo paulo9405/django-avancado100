@@ -1,3 +1,4 @@
+from django.forms import model_to_dict
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse_lazy
@@ -135,4 +136,16 @@ def api(request):
     a = {'Nome': 'Paulo', 'Idade': 27, 'Salario': 500}
     mensagem = {'mensagem': 'erro x y z'}
     lista = [1, 2, 3]
-    return JsonResponse(lista, status=200, safe=False)
+
+    produto = Produto.objects.last()
+
+    b = model_to_dict(produto)
+
+    l = []
+
+    produtos = Produto.objects.all()
+
+    for produto in produtos:
+        l.append(model_to_dict(produto))
+
+    return JsonResponse(l, status=200, safe=False)
