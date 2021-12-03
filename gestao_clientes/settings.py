@@ -36,6 +36,7 @@ ADMINS = [('Paulo', 'paulo.ricardo1137.pr@gmail.com'), ('Paulo Outlook', 'pauloi
 # Application definition
 
 INSTALLED_APPS = [
+    'grappelli',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.sites',
