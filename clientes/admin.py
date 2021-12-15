@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Person, Documento
+from .models import Person, Documento, TabelaExistente
 
 
 # fields: personalizando formulario, mudando os filds de posição,
@@ -48,4 +48,5 @@ class DocumentoAdmin(admin.ModelAdmin):
 
 admin.site.register(Person, PersonAdmin)
 admin.site.register(Documento, DocumentoAdmin)
+admin.site.register(TabelaExistente)
 
