@@ -69,6 +69,9 @@ class TabelaExistente(models.Model):
     class Meta:
         db_table = 'MinhaTabela2'
 
+    def __str__(self):
+        return self.nome
+
 
 
 
